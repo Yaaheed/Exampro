@@ -21,12 +21,17 @@ service cloud.firestore {
       return isAuthenticated() && (getUserRole() == 'teacher' || getUserRole() == 'admin');
     }
 
+    // Helper function to check if user is marker or admin
+    function isMarkerOrAdmin() {
+      return isAuthenticated() && (getUserRole() == 'marker' || getUserRole() == 'admin');
+    }
+
     // User profiles: users can read/write their own; admins can read/write all
     match /artifacts/{appId}/users/{userId}/user_metadata/profile {
       allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
     }
 
-    // Exams: all authenticated users can read; teachers and admins can write
+    // Exams: authenticated users can read; teachers and admins can write
     match /artifacts/{appId}/exams/{examId} {
       allow read: if isAuthenticated();
       allow write: if isTeacherOrAdmin();

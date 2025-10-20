@@ -1,0 +1,25 @@
+{
+  "name": "exam-pro",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yaaheed/Exampro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yaaheed/Exampro/issues"
+  },
+  "homepage": "https://github.com/Yaaheed/Exampro#readme",
+  "dependencies": {
+    "vite": "^5.2.11"
+  }
+}
