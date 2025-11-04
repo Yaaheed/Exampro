@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ExamPro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container dashboard">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a href="#" id="manageUsers">Manage Users</a></li>
+            <li><a href="#" id="viewStats">View Statistics</a></li>
+            <li><a href="#" id="exportData">Export Data</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+        <div id="content"></div>
+    </div>
+
+    <!-- Modal for Manage Users -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Manage Users</h3>
+            <div id="userList"></div>
+            <button id="addUserBtn">Add New User</button>
+        </div>
+    </div>
+
+    <!-- Modal for Add User -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add New User</h3>
+            <form id="addUserForm">
+                <input type="text" id="newUserName" placeholder="Name" required>
+                <input type="email" id="newUserEmail" placeholder="Email" required>
+                <input type="password" id="newUserPassword" placeholder="Password" required>
+                <select id="newUserRole" required>
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="lecturer">Lecturer</option>
+                </select>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <script src="js/appwrite-config.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Dashboard - ExamPro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="container dashboard">
+        <h2>Lecturer Dashboard</h2>
+        <ul>
+            <li><a href="#" id="manageQuestions">Manage Questions</a></li>
+            <li><a href="#" id="generateExam">Generate Exam</a></li>
+            <li><a href="#" id="generateMarkingGuide">Generate Marking Guide</a></li>
+            <li><a href="#" id="viewResults">View Results</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+        <div id="content"></div>
+    </div>
+
+    <!-- Modal for Manage Questions -->
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Manage Questions</h3>
+            <button id="addQuestionBtn">Add New Question</button>
+            <div id="questionList"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Add/Edit Question -->
+    <div id="addQuestionModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="questionModalTitle">Add New Question</h3>
+            <form id="questionForm">
+                <select id="questionType" required>
+                    <option value="">Select Type</option>
+                    <option value="objective">Objective</option>
+                    <option value="theory">Theory</option>
+                </select>
+                <input type="text" id="questionCourse" placeholder="Course" required>
+                <input type="text" id="questionTopic" placeholder="Topic" required>
+                <select id="questionDifficulty" required>
+                    <option value="">Select Difficulty</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <input type="number" id="questionMarks" placeholder="Marks" required>
+                <textarea id="questionText" placeholder="Question Text" required></textarea>
+                <div id="optionsContainer" style="display: none;">
+                    <input type="text" id="option1" placeholder="Option 1">
+                    <input type="text" id="option2" placeholder="Option 2">
+                    <input type="text" id="option3" placeholder="Option 3">
+                    <input type="text" id="option4" placeholder="Option 4">
+                    <select id="correctAnswer">
+                        <option value="">Select Correct Answer</option>
+                        <option value="0">Option 1</option>
+                        <option value="1">Option 2</option>
+                        <option value="2">Option 3</option>
+                        <option value="3">Option 4</option>
+                    </select>
+                </div>
+                <input type="url" id="questionMedia" placeholder="Media URL (optional)">
+                <button type="submit">Save Question</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Generate Exam -->
+    <div id="examModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Generate Exam</h3>
+            <form id="examForm">
+                <input type="text" id="examTitle" placeholder="Exam Title" required>
+                <input type="text" id="examCourse" placeholder="Course" required>
+                <input type="number" id="examDuration" placeholder="Duration (minutes)" required>
+                <div id="questionSelector"></div>
+                <button type="submit">Generate Exam</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <script src="js/appwrite-config.js"></script>
+    <script src="js/lecturer.js"></script>
+</body>
+</html>

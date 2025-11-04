@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - ExamPro</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container dashboard">
+        <h2>Student Dashboard</h2>
+        <ul>
+            <li><a href="#" id="takeMockExam">Take Mock Exam</a></li>
+            <li><a href="#" id="viewResults">View Results</a></li>
+            <li><a href="#" id="logout">Logout</a></li>
+        </ul>
+        <div id="content"></div>
+    </div>
+
+    <!-- Modal for Take Exam -->
+    <div id="examTakingModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close">&times;</span>
+            <h3 id="examTitle">Exam Title</h3>
+            <div id="examTimer">Time Remaining: <span id="timeRemaining">00:00</span></div>
+            <div id="examQuestions"></div>
+            <button id="submitExamBtn">Submit Exam</button>
+        </div>
+    </div>
+
+    <!-- Modal for View Results -->
+    <div id="resultsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>My Results</h3>
+            <div id="resultsList"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <script src="js/appwrite-config.js"></script>
+    <script src="js/student.js"></script>
+</body>
+</html>
